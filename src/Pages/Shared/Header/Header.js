@@ -15,7 +15,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import "./Header.css";
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
 
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
@@ -23,9 +23,9 @@ const Header = () => {
     </Tooltip>
   );
   const handleLogOut = () => {
-    // logOut()
-    //   .then(() => {})
-    //   .catch((error) => console.error(error));
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
   return (
     <div className="header-container ">
@@ -50,20 +50,31 @@ const Header = () => {
 
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className=" justify-content-end flex-grow-1 px-5 fs-5">
-                <Nav.Link className=" me-5" as={Link} to="/">
+                <Nav.Link className=" me-4" as={Link} to="/">
                   Home
                 </Nav.Link>
-                <Nav.Link className=" me-5" as={Link} to="/courses">
+                <Nav.Link className=" me-4" as={Link} to="/courses">
                   Services
                 </Nav.Link>
-                <Nav.Link className=" me-5" as={Link} to="/faq">
+                <Nav.Link className=" me-4" as={Link} to="/faq">
                   FAQ
                 </Nav.Link>
-                <Nav.Link className=" me-5" as={Link} to="/blogs">
+                <Nav.Link className=" me-4" as={Link} to="/blogs">
                   Blog
                 </Nav.Link>
 
-                <Link to="/profile">
+                
+
+                <>
+                  {user?.uid ? (
+                    <>
+                      <Nav.Link className=" me-2" as={Link} to="/myReview">
+                        My Review
+                      </Nav.Link>
+                      <Nav.Link className=" me-1" as={Link} to="/addServices">
+                        Add Services
+                                      </Nav.Link>
+                                      <Link to="/profile">
                   {user ? (
                     <>
                       {" "}
@@ -75,8 +86,8 @@ const Header = () => {
                         {user?.photoURL ? (
                           <>
                             <Image
-                              className="fs-5"
-                              style={{ height: "40px", marginTop: "7px" }}
+                              className="fs-5 me-2"
+                              style={{ height: "40px", marginTop: "6px" }}
                               roundedCircle
                               src={user?.photoURL}
                               title={user?.displayName}
@@ -94,21 +105,12 @@ const Header = () => {
                     <></>
                   )}
                 </Link>
-
-                <>
-                  {user?.uid ? (
-                    <>
-                      <Nav.Link className=" me-5" as={Link} to="/myReview">
-                        My Review
-                      </Nav.Link>
-                      <Nav.Link className=" me-5" as={Link} to="/addServices">
-                        Add Services
-                      </Nav.Link>
                       <Button
                         onClick={handleLogOut}
                         className="ms-2"
                         variant="danger"
                       >
+                        
                         Logout
                       </Button>
                     </>

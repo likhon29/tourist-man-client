@@ -14,15 +14,15 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
 } from "firebase/auth";
+import toast from "react-hot-toast";
 const Login = () => {
   const [error, setError] = useState("");
-  const { login, setLoading, providerLogin, setUser } = useContext(AuthContext);
+  const { signIn, setLoading, providerLogin, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
   const googleProvider = new GoogleAuthProvider();
-  const gitHubProvider = new GithubAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
@@ -50,14 +50,14 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    login(email, password)
+    signIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
         setError("");
         navigate(from, { replace: true });
-        // toast.success("Welcome to Master Academy...");
+        toast.success("Welcome to Tourist Man...");
         // if (user.emailVerified) {
         //   navigate(from, { replace: true });
         //   toast.success("Welcome to Master Academy...");
@@ -82,7 +82,7 @@ const Login = () => {
           <Row>
             <Col lg="4">
               <div className="container py-5">
-              <Image src={img}></Image>
+                <Image src={img}></Image>
               </div>
             </Col>
             <Col lg="7">
