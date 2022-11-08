@@ -9,7 +9,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../../../Assets/images/logo.jpg";
+import logo from "../../../Assets/images/logo-2.png";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -39,9 +39,9 @@ const Header = () => {
             >
               <img
                 src={logo}
-                width="60px"
-                height="60px"
-                style={{ borderRadius: "50%" }}
+                width={80}
+                
+                style={{  }}
                 alt=""
               />{" "}
               <h2 className="ms-3">Tourist.Man</h2>
@@ -53,7 +53,7 @@ const Header = () => {
                 <Nav.Link className=" me-4" as={Link} to="/">
                   Home
                 </Nav.Link>
-                <Nav.Link className=" me-4" as={Link} to="/courses">
+                <Nav.Link className=" me-4" as={Link} to="/allServices">
                   Services
                 </Nav.Link>
                 <Nav.Link className=" me-4" as={Link} to="/faq">

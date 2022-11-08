@@ -10,12 +10,19 @@ import toast from "react-hot-toast";
 const Register = () => {
   const [error, setError] = useState("");
   const [accept, setAccept] = useState(false);
-  const { createUser, verifyEmail, updateUserProfile ,volunteer,setVolunteer,setLoading} =
-    useContext(AuthContext);
-    const navigate = useNavigate();
-    const location = useLocation();
-  
-  const from = location.state?.from?.pathname || '/';
+  const {
+    user,
+    createUser,
+    verifyEmail,
+    updateUserProfile,
+    volunteer,
+    setVolunteer,
+    setLoading,
+  } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -23,24 +30,28 @@ const Register = () => {
     const name = form.name.value;
     const password = form.password.value;
     const phone = form.phone.value;
-    
+    const photURL = form.photoURL.value;
     const userInfo = {
       email,
       name,
       password,
       phone,
+      photURL,
     };
     console.log(userInfo);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        user.photURL = photURL;
+        user.displayName = name;
+        user.phone = phone;
         console.log(user);
         setError("");
         form.reset();
         setLoading(true);
         handleUpdateUserProfile({ userInfo });
-        handleEmailVerification();
+        // handleEmailVerification();
         toast.success("Please verify your email");
         navigate("/");
       })
@@ -49,25 +60,27 @@ const Register = () => {
         setError(err.message);
       });
 
-      fetch('http://localhost:5000/users', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(userInfo)
-      })
-      .then(res => res.json())
-      .then(data => {
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
         const newMembers = [...volunteer, data];
         setVolunteer(newMembers);
       })
-      .catch(err => console.error(err))
+      .catch((err) => console.error(err));
   };
 
   const handleUpdateUserProfile = ({ userInfo }) => {
     updateUserProfile(userInfo)
-      .then(() => {})
+      .then(() => {
+        // user.photoURL = userInfo.photoURL;
+      })
       .catch((error) => console.error(error));
   };
 
@@ -77,7 +90,6 @@ const Register = () => {
       .catch((error) => console.error(error));
   };
 
- 
   const handleAccept = (event) => {
     setAccept(event.target.checked);
   };
@@ -130,8 +142,17 @@ const Register = () => {
                         required
                       />
                     </Form.Group>
-
-                    <Form.Check className="my-3"
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Photo URL</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Photo URL"
+                        name="photoURL"
+                        required
+                      />
+                    </Form.Group>
+                    <Form.Check
+                      className="my-3"
                       type="checkbox"
                       onClick={handleAccept}
                       label={
@@ -140,12 +161,12 @@ const Register = () => {
                           <Link className="text-warning ms-2" to="/terms">
                             Terms and conditions
                           </Link>{" "}
-                          of UMSA
+                          of Tourist_man
                         </>
                       }
                     />
                     <Form.Text className="text-danger">{error}</Form.Text>
-                   
+
                     <Button
                       variant="primary"
                       className="w-75 my-3 "
@@ -154,7 +175,6 @@ const Register = () => {
                     >
                       Create an account
                     </Button>
-                   
                   </Form>
                 </div>
               </div>
