@@ -1,6 +1,9 @@
 import React from 'react';
 import image from '../../../Assets/images/logo.jpg'
+import useTitle from '../../../Hooks/useTitle';
 const About = () => {
+//  useTitle("About");
+
     return (
         <div>
            <div className="container d-flex">

@@ -8,7 +8,9 @@ const PrivateRouter = ({children}) => {
     
 
     if(loading) {
-        return <Spinner animation="border" variant="primary" />
+        return <div className="d-flex justify-content-center ">
+            <Spinner  animation="border" variant="primary" />
+        </div>
     }
 
     if(user){

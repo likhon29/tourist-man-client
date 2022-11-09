@@ -7,6 +7,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import useTitle from "../../../Hooks/useTitle";
 const Register = () => {
   const [error, setError] = useState("");
   const [accept, setAccept] = useState(false);
@@ -93,6 +94,8 @@ const Register = () => {
   const handleAccept = (event) => {
     setAccept(event.target.checked);
   };
+ useTitle("Register");
+
   return (
     <div>
       <div className="container">

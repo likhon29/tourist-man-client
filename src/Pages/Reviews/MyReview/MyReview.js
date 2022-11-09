@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitle";
 import MyReviewItem from "../MyReviewItem/MyReviewItem";
 import SingleReview from "../SingleReview/SingleReview";
 
@@ -37,6 +38,8 @@ const MyReview = () => {
         });
     }
   };
+ useTitle("MyReview");
+
   return (
     <div className="container">
       <h1>My Review:{myReview.length}</h1>

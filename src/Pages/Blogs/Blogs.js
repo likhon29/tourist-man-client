@@ -1,8 +1,11 @@
 import React from "react";
 import "./Blogs.css";
 
+import useTitle from "../../Hooks/useTitle";
 import { Button, Card } from "react-bootstrap";
 const Blogs = () => {
+ useTitle("Blogs");
+
   return (
     <div className="container ">
      

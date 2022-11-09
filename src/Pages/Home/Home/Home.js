@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitle";
 import ServiceItem from "../../Services/ServiceItem/ServiceItem";
 import About from "../About/About";
 import Banner from "../Banner/Banner";
@@ -19,6 +20,8 @@ const Home = () => {
       });
   }, []);
   console.log(services);
+ useTitle("Home");
+
   return (
     <div>
       <Banner></Banner>

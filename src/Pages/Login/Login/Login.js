@@ -15,6 +15,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import toast from "react-hot-toast";
+import useTitle from "../../../Hooks/useTitle";
 const Login = () => {
   const [error, setError] = useState("");
   const { signIn, setLoading, providerLogin, setUser } = useContext(AuthContext);
@@ -74,6 +75,7 @@ const Login = () => {
         setLoading(false);
       });
   };
+  useTitle("Login");
 
   return (
     <div className="login">

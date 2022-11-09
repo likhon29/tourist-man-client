@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitle";
 
 const AddService = () => {
     const {setLoading}=useContext(AuthContext);
@@ -63,6 +64,8 @@ const AddService = () => {
     event.preventDefault();
     setRatings(event.target.value);
   };
+ useTitle("Add Service");
+
   return (
     <div className="container mb-5">
           <h1 className="text-center text-primary">Add service : { services.length}</h1>

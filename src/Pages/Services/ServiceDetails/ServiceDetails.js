@@ -5,10 +5,13 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "../ServiceItem/ServiceItem.css";
 import Review from "../../Reviews/Review/Review";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitle";
 const ServiceDetails = () => {
     const {user}=useContext(AuthContext);
   const service = useLoaderData();
   const { image, _id, service_name, description, price, rating } = service;
+ useTitle(`${service_name}`);
+
   return (
     <div className="container">
       <div className="container  m-5 border p-3">
