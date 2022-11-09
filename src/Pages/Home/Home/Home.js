@@ -27,7 +27,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <PageTitle pageInfo={{title:"My Services"}}></PageTitle>
-      <div className="container">
+      <div className="">
         {/* <h1>Services:{services.length}</h1> */}
         {services.map((service) => (
           <ServiceItem service={service} key={service._id}></ServiceItem>

@@ -3,11 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import PageTitle from "../../Others/PageTitle/PageTitle";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
+
 const Contact = () => {
   return (
     <div className="">
       <PageTitle pageInfo={{ title: "Contact Me" }}></PageTitle>
-      <Container className="container bg-light  ">
+      <Container className=" bg-light  ">
         <Row>
           <Col lg="6">
             <div className="">
@@ -47,12 +49,12 @@ const Contact = () => {
                   <Form.Control type="text" placeholder="Subject" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <textarea name="" id="" cols="70" rows="10"></textarea>
+                  <textarea name="" id="" cols="70" placeholder="write your massage here..." rows="10"></textarea>
                               </Form.Group>
 
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
+                <Link to="/">
+          <Button className="btn btn-primary w-25">Send</Button>
+        </Link>
               </Form>
             </div>
           </Col>

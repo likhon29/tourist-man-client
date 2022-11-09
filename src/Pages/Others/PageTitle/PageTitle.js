@@ -4,10 +4,9 @@ const PageTitle = ({pageInfo}) => {
     const { title } = pageInfo;
     return (
        
-            <div className="page-title row d-flex align-items-center  my-5">
-                <div className="col-lg-8 my-auto text-center">
+            <div className="page-title  d-flex align-items-center  my-5">
+                <div className="col-lg-12  text-center">
                     <h1 className="">{ title}</h1>
-                    
                 </div> 
             </div>
      

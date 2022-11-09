@@ -30,7 +30,7 @@ const MyReview = () => {
 
   const handleDelete = (id) => {
     const proceed = window.confirm(
-      "Are you sure, you want to cancel this order"
+      "Are you sure, you want to delete this review?"
     );
     if (proceed) {
       fetch(`http://localhost:5000/myReview/${id}`, {
@@ -40,9 +40,9 @@ const MyReview = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            alert("deleted successfully");
             const remaining = myReview.filter((review) => review._id !== id);
             setMyReview(remaining);
+            alert("deleted successfully");
           }
         });
     }

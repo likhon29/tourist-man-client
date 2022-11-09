@@ -10,15 +10,17 @@ const Blogs = () => {
     <div className="container ">
      
       <Card className="mx-auto w-75">
-        <Card.Img variant="top" src="https://geekflare.com/wp-content/uploads/2019/11/cors.jpg" />
+        <Card.Img variant="top" src="https://i.ytimg.com/vi/QwevGzVu_zk/maxresdefault.jpg" />
         <Card.Body>
-          <Card.Title className="text-primary">What is CORS?
+          <Card.Title className="text-primary">o	What is the Difference between SQL and NoSQL?
         </Card.Title>
           <Card.Text>
             <p>
-            CORS stands for Cross-Origin Resource Sharing. It allows us to relax the security applied to an API. This is done by bypassing the Access-Control-Allow-Origin headers, which specify which origins can access the API.
-
-            In other words, CORS is a browser security feature that restricts cross-origin HTTP requests with other servers and specifies which domains access your resources.
+            SQL databases are relational, NoSQL databases are non-relational.
+SQL databases use structured query language and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.
+SQL databases are vertically scalable, while NoSQL databases are horizontally scalable.
+SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores.
+SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.
             </p>
             <img
               src="https://i0.wp.com/www.section.io/engineering-education/how-to-use-cors-in-nodejs-with-express/diffrent-origin.jpg?resize=728%2C177&ssl=1"
@@ -36,70 +38,74 @@ const Blogs = () => {
         </Card.Body>
       </Card>
       <Card className="mx-auto w-75">
-        <Card.Img variant="top" src="https://firebase.google.com/images/social.png" />
+        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLhjlaJh0yUSX0b-JP6wkxzVpcQDYjtwHENA&usqp=CAU" />
         <Card.Body>
-          <Card.Title className="text-primary">Why are you using firebase? What other options do you have to implement authentication?</Card.Title>
+          <Card.Title className="text-primary">o	What is JWT, and how does it work?</Card.Title>
           <Card.Text>
             <p>
-            The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience.
+            JWT or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
             </p>
             <p>
-            Google Analytics for Firebase allows you to track your users' journey through realtime and custom reporting. As mentioned previously, Firebase supports IOS, Android, Web, and Unity products, allowing you to track your users across a wide range of devices.
+            JWTs differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.
+
+            A JWT is a string made up of three parts, separated by dots (.), and serialized using base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz.
+
+        
             </p>
+            <img src="https://fullstackmark.com/img/posts/19/jwt-flow-using-authentication-server-with-access-token-and-resource-server.png" alt="" />
             <p>
-            User Authentication Platforms without firebase
-              <ul>
-                <li>STYTCH</li>
-                <li>Ory</li>
-                <li>Supabase</li>
-                <li>Okta</li>
-                <li>PingIdentity</li>
-                <li>Keycloak</li>
-                <li>Frontegg</li>
-                <li>Authress</li>
-               
-              </ul>
+            Once decoded, you will get two JSON strings:
+
+The header and the payload.
+The signature. 
+The JOSE (JSON Object Signing and Encryption) header contains the type of token — JWT in this case — and the signing algorithm.  
+
+The payload contains the claims. This is displayed as a JSON string, usually containing no more than a dozen fields to keep the JWT compact. This information is typically used by the server to verify that the user has permission to perform the action they are requesting.
+
+There are no mandatory claims for a JWT, but overlaying standards may make claims mandatory. For example, when using JWT as bearer access token under OAuth2.0, iss, sub, aud, and exp must be present. some are more common than others. 
+
+The signature ensures that the token hasn’t been altered. The party that creates the JWT signs the header and payload with a secret that is known to both the issuer and receiver, or with a private key known only to the sender. When the token is used, the receiving party verifies that the header and payload match the signature. 
             </p>
           </Card.Text>
           <Button variant="primary">Learn More</Button>
         </Card.Body>
       </Card>
       <Card className="mx-auto w-75">
-        <Card.Img variant="top" src="https://i.ytimg.com/vi/y6S26FiwEy4/maxresdefault.jpg" />
+        <Card.Img variant="top" src="https://blog.boot.dev/img/800/Nodejs-vs-Javascript-min.webp" />
         <Card.Body>
-          <Card.Title className="text-primary">How does the private route work?</Card.Title>
+          <Card.Title className="text-primary">o	What is the difference between javascript and NodeJS?</Card.Title>
           <Card.Text>
             <p>
-            The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in)
+            1. JavaScript is a client-side scripting language that is lightweight, cross-platform, and interpreted. Both Java and HTML include it. Node.js, on the other hand, is a V8-based server-side programming language.
+
+As a result, it is used to create network-centric applications. It's a networked system made for data-intensive real-time applications. If we compare node js vs. python, it is clear that node js will always be the preferred option.
               
             </p>
-            <p>Private Routes vary based on the Apps, For example, Dashboard, User Profile, App Settings, Home etc. In simple words, These routes can be accessed only after login.
-
-The constraints for Public and Private routes are that Public routes should not be accessed after login and Private routes should not be accessible before login.</p>
+            <p>
+            2.JavaScript is normally used for any client-side activity for one web application. An activity can be addressing business validation or dynamic page display in some schedule time interval or basic Ajax call kind of task. Those are used for a maximum time for any web application. Whereas Node JS mainly used for accessing or running any operating system for non-blocking operation. An operation like creating or executing a shell script, or getting some specific hardware-related information on one call or installed certificate details in the system or a lot of define task is non-blocking on an operating system.
+            </p>
+            <p>3. Any engine may run JavaScript. As a result, writing JavaScript is incredibly easy, and any working environment is similar to a complete browser. Node.js, on the other hand, only enables the V8 engine. Written JavaScript code, on the other hand, can run in any context, regardless of whether the V8 engine is supported.</p>
           </Card.Text>
           <Button variant="primary">Learn More</Button>
         </Card.Body>
       </Card>
       <Card className="mx-auto w-75">
-        <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png" />
+        <Card.Img variant="top" src="https://assets.digitalocean.com/articles/68408/node_green_tutorial.png" />
         <Card.Body>
-          <Card.Title className="text-primary">What is Node? How does Node work?</Card.Title>
+          <Card.Title className="text-primary">o	How does NodeJS handle multiple requests at the same time?</Card.Title>
           <Card.Text>
             <p>
-            Node.js is an open-source backend javascript runtime environment. It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node.js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
+            We know NodeJS application is single-threaded. Say, if processing involves request A that takes 10 seconds, it does not mean that a request which comes after this request needs to wait 10 seconds to start processing because NodeJS event loops are only single-threaded. The entire NodeJS architecture is not single-threaded. 
               
             </p>
             <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20210916203407/WorkingofNodejs1.png"
+              src="https://miro.medium.com/max/1290/1*G6mHZlqhKJ5_UxUWoCdUng.png"
               width="50%"
               alt=""
             />
-            <p>Node.js accepts the request from the clients and sends the response, while working with the request node.js handles them with a single thread. To operate I/O operations or requests node.js use the concept of threads. Thread is a sequence of instructions that the server needs to perform. It runs parallel on the server to provide the information to multiple clients. Node.js is an event loop single-threaded language. It can handle concurrent requests with a single thread without blocking it for one request.
+            <p>NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue. 
 
-Node.js basically works on two concept
-
-Asynchronous
-Non-blocking I/O</p>
+If NodeJS can process the request without I/O blocking then the event loop would itself process the request and sends the response back to the client by itself. But, it is possible to process multiple requests parallelly using the NodeJS cluster module or worker_threads module.</p>
           </Card.Text>
           <Button variant="primary">Learn More</Button>
         </Card.Body>

@@ -4,10 +4,11 @@
     background-size:cover;
     background-repeat: no-repeat;
     background-position:center;
-   display:flex;
-   justify-content: center;
-   align-items: center;
+    text-align: center;
+   /* display:flex; */
+   /* justify-content: center; */
+   /* align-items: center; */
     color:white;
-    width:100vw;
+    /* width:909w; */
     /* overflow-x: hidden; */
 }

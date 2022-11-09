@@ -12,7 +12,7 @@ const About = () => {
     <div className="">
       <PageTitle pageInfo={{ title: "About  Tourist-Man" }}></PageTitle>
 
-      <Container className="container bg-light  ">
+      <Container className=" bg-light  ">
         <Row>
           <Col lg="6" className="">
           <h1 className="my-3 m-5 fs-1 font-bold">

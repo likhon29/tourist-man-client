@@ -4,6 +4,8 @@ import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import SingleReview from "../SingleReview/SingleReview";
 import "./Review.css";
+import { Navigate, useLocation } from "react-router-dom";
+
 const Review = ({ service }) => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
@@ -12,21 +14,24 @@ const Review = ({ service }) => {
       .then((response) => response.json())
       .then((data) => setReviews(data));
   }, [reviews, service._id]);
- 
+  const location = useLocation();
 
   return (
     <div>
       <h3 className="text-warning">
         Customer Reviews for {service.service_name}
-        
       </h3>
-      <p className="text-success">No of Reviews:{reviews.length }</p>
+      <p className="text-success">No of Reviews:{reviews.length}</p>
       <div className="">
-        {reviews.length===0 ? <h1 className="text-danger text-center">No Reviews Found</h1> : <>{reviews.map((review) => (
-          <SingleReview review={review} key={review._id}></SingleReview>
-        ))}</>}
-        
-        
+        {reviews.length === 0 ? (
+          <h1 className="text-danger text-center">No Reviews Found</h1>
+        ) : (
+          <>
+            {reviews.map((review) => (
+              <SingleReview review={review} key={review._id}></SingleReview>
+            ))}
+          </>
+        )}
       </div>
       {user ? (
         <ReviewForm service={service}></ReviewForm>
@@ -34,8 +39,10 @@ const Review = ({ service }) => {
         <>
           <div className="d-flex">
             <h3>
-              Please login to add a review <Link to="/login">Login</Link>
+              
+              Please <Link to="/login">Login</Link> to add a review 
             </h3>
+            {/* <Navigate to="/login" state={{ from: location }} replace></Navigate> */}
           </div>
         </>
       )}
