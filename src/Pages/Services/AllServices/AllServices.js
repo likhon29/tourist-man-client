@@ -4,6 +4,7 @@ import ServiceItem from "../ServiceItem/ServiceItem";
 import Spinner from "react-bootstrap/Spinner";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitle";
+import LoaderSpinner from "../../Others/LoaderSpinner/LoaderSpinner";
 const AllServices = () => {
   const [allServices, setAllServices] = useState([]);
   const { loading, setLoading } = useContext(AuthContext);
@@ -19,11 +20,7 @@ const AllServices = () => {
   useTitle("ALl Service");
   return (
     <div>
-      {loading ? (
-        <div id="loader" className="d-flex justify-content-center ">
-          <Spinner className="text-center" animation="border" variant="info" />
-        </div>
-      ) : (
+      {loading ? <LoaderSpinner></LoaderSpinner> : (
         <>
           {" "}
           {allServices.map((service) => (
