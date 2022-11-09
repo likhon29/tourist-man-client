@@ -7,16 +7,26 @@ import MyReviewItem from "../MyReviewItem/MyReviewItem";
 import SingleReview from "../SingleReview/SingleReview";
 
 const MyReview = () => {
-  const { user,loading,setLoading } = useContext(AuthContext);
+  const { user,loading,setLoading ,logOut} = useContext(AuthContext);
   const [myReview, setMyReview] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
-      .then((response) => response.json())
+    fetch(`http://localhost:5000/myReviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('tourist-man-token')}`
+      }
+    })
+      .then((response) => {
+        if (response.status === 401 || response.status === 403)
+        {
+          return logOut();
+          }
+        return response.json();
+      })
       .then((data) => {
         setLoading(false);
         setMyReview(data)
       });
-  }, [user?.email,setLoading]);
+  }, [user?.email,setLoading,logOut]);
   console.log(myReview);
 
   const handleDelete = (id) => {

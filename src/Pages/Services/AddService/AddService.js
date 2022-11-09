@@ -3,11 +3,12 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitle";
-
+import { useNavigate } from "react-router-dom";
 const AddService = () => {
     const {setLoading}=useContext(AuthContext);
     const [ratings, setRatings] = useState(0);
-    const [services,setServices]=useState([])
+  const [services, setServices] = useState([])
+  const navigate = useNavigate();
     useEffect(() => {
         fetch('http://localhost:5000/allServices')
             .then(res => res.json())
@@ -17,6 +18,7 @@ const AddService = () => {
                 setServices(data)
             })
     },[services,setLoading]);
+    
   //   const [reviews, setReviews] = useState([]);
 
   //   const { user } = useContext(AuthContext);
@@ -56,6 +58,7 @@ const AddService = () => {
           if (data.acknowledged) {
             alert("Service added successfully");
             form.reset();
+            navigate('/')
           }
         })
         .catch((er) => console.error(er));

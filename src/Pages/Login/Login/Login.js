@@ -54,11 +54,31 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        const currentUser = {
+          email: user.email,
+          
+        }
+        console.log(currentUser);
         form.reset();
         setError("");
-        navigate(from, { replace: true });
-        toast.success("Welcome to Tourist Man...");
+        //get jwt token
+
+        fetch('http://localhost:5000/jwt', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            localStorage.setItem('tourist-man-token', data.token)
+            navigate(from, { replace: true });
+          toast.success("Welcome to Tourist Man...");
+        })
+
+        
         // if (user.emailVerified) {
         //   navigate(from, { replace: true });
         //   toast.success("Welcome to Master Academy...");

@@ -11,12 +11,7 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_storageBucket,
   messagingSenderId: process.env.REACT_APP_messagingSenderId,
   appId: process.env.REACT_APP_appId,
-  //   apiKey: "AIzaSyC-X7Yo9mJdVLsnnhrRGdKcFklFFS4baMA",
-  //   authDomain: "tourist-man-a4780.firebaseapp.com",
-  //   projectId: "tourist-man-a4780",
-  //   storageBucket: "tourist-man-a4780.appspot.com",
-  //   messagingSenderId: "318900230500",
-  //   appId: "1:318900230500:web:507d522d8faded73a20271"
+  
 };
 
 // Initialize Firebase
