@@ -75,17 +75,11 @@ const Login = () => {
             console.log(data);
             localStorage.setItem('tourist-man-token', data.token)
             navigate(from, { replace: true });
-          toast.success("Welcome to Tourist Man...");
+            toast.success("Welcome to Tourist Man...");
         })
 
         
-        // if (user.emailVerified) {
-        //   navigate(from, { replace: true });
-        //   toast.success("Welcome to Master Academy...");
-        // }
-        // else {
-        //   toast.error("Your email is not verified.Please Verify your email")
-        // }
+        
       })
       .catch((error) => {
         console.error(error.message);

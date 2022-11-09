@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom'
 const MyReviewItem = ({ review,handleDelete }) => {
   console.log(review);
   
@@ -38,7 +38,7 @@ const MyReviewItem = ({ review,handleDelete }) => {
       <td>{review.ratings}</td>
       <td>{review.date}</td>
       <th>
-        <button className="btn btn-primary btn-xs">{"Edit"}</button>
+        <Link to={`/myReview/${review._id}`}><button className="btn btn-primary btn-xs">{"Edit"}</button></Link>
       </th>
     </tr>
   );

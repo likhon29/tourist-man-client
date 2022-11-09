@@ -31,10 +31,7 @@ const Footer = () => {
               Tourist Man
             </p>
             <CDBBox display="flex" flex="column" style={{ cursor: 'pointer' }}>
-              <CDBFooterLink href="/qna">QNA</CDBFooterLink>
-              <CDBFooterLink href="/">About Us</CDBFooterLink>
-              <CDBFooterLink href="/">Contact</CDBFooterLink>
-              <CDBFooterLink href="/blogs">Blog</CDBFooterLink>
+              
             </CDBBox>
           </CDBBox>
           <CDBBox>
@@ -42,9 +39,7 @@ const Footer = () => {
               Products
             </p>
             <CDBBox display="flex" flex="column" style={{ cursor: 'pointer' }}>
-              <CDBFooterLink href="/">Windframe</CDBFooterLink>
-              <CDBFooterLink href="/">Loop</CDBFooterLink>
-              <CDBFooterLink href="/">Contrast</CDBFooterLink>
+              
             </CDBBox>
           </CDBBox>
           <CDBBox>
@@ -52,9 +47,7 @@ const Footer = () => {
               Help
             </p>
             <CDBBox display="flex" flex="column" style={{ cursor: 'pointer' }}>
-              <CDBFooterLink href="/">Support</CDBFooterLink>
-              <CDBFooterLink href="/">Sign Up</CDBFooterLink>
-              <CDBFooterLink href="/">Sign In</CDBFooterLink>
+              
             </CDBBox>
           </CDBBox>
         </CDBBox>
@@ -64,3 +57,16 @@ const Footer = () => {
   );
 };
 export default Footer;
+
+// <CDBFooterLink href="/qna">QNA</CDBFooterLink>
+//               <CDBFooterLink href="/">About Us</CDBFooterLink>
+//               <CDBFooterLink href="/">Contact</CDBFooterLink>
+//               <CDBFooterLink href="/blogs">Blog</CDBFooterLink>
+
+{/* <CDBFooterLink href="/">Support</CDBFooterLink>
+              <CDBFooterLink href="/">Sign Up</CDBFooterLink>
+              <CDBFooterLink href="/">Sign In</CDBFooterLink> 
+            <CDBFooterLink href="/">Windframe</CDBFooterLink>
+              <CDBFooterLink href="/">Loop</CDBFooterLink>
+              <CDBFooterLink href="/">Contrast</CDBFooterLink>
+            */}

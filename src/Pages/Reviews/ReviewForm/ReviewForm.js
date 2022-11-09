@@ -75,7 +75,7 @@ const ReviewForm = ({ service }) => {
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            name="review"
+            name="review" required
           ></textarea>
         </div>
         <div className="mb-3">

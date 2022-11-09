@@ -35,7 +35,7 @@ const MyReview = () => {
     if (proceed) {
       fetch(`http://localhost:5000/myReview/${id}`, {
         method: "DELETE",
-        headers: {},
+        authorization: `Bearer ${localStorage.getItem('tourist-man-token')}`
       })
         .then((res) => res.json())
         .then((data) => {
@@ -47,11 +47,37 @@ const MyReview = () => {
         });
     }
   };
+  const handleReviewUpdate = id => {
+    fetch(`http://localhost:5000/myReview/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('tourist-man-token')}`
+        },
+        body: JSON.stringify({ status: 'Approved' })
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+                // const remaining = orders.filter(odr => odr._id !== id);
+                // const approving = orders.find(odr => odr._id === id);
+                // approving.status = 'Approved'
+
+                // const newOrders = [approving, ...remaining];
+                // setOrders(newOrders);
+            }
+        })
+}
   useTitle("MyReview");
 
   return (
     <div className="container">
-      <h1>My Review:{myReview.length}</h1>
+       {myReview.length === 0 ? (
+          <h1 className="text-danger text-center">No Reviews were added</h1>
+        ) : (
+          <>
+          <h1>My Review:{myReview.length}</h1>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>
@@ -81,18 +107,17 @@ const MyReview = () => {
                     review={review}
                     key={review._id}
                     handleDelete={handleDelete}
+                    
                   ></MyReviewItem>
                 ))}
               </>
             )}
           </tbody>
         </table>
-        {myReview.length === 0 ? (
-          <h1 className="text-danger text-center">No Reviews were added</h1>
-        ) : (
-          <></>
+       
+      </div></>
         )}
-      </div>
+      
     </div>
   );
 };
