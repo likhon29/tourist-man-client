@@ -7,26 +7,25 @@ import MyReviewItem from "../MyReviewItem/MyReviewItem";
 import SingleReview from "../SingleReview/SingleReview";
 
 const MyReview = () => {
-  const { user,loading,setLoading ,logOut} = useContext(AuthContext);
+  const { user, loading, setLoading, logOut } = useContext(AuthContext);
   const [myReview, setMyReview] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/myReviews?email=${user?.email}`, {
       headers: {
-        authorization: `Bearer ${localStorage.getItem('tourist-man-token')}`
-      }
+        authorization: `Bearer ${localStorage.getItem("tourist-man-token")}`,
+      },
     })
       .then((response) => {
-        if (response.status === 401 || response.status === 403)
-        {
-          return logOut();
-          }
+        if (response.status === 401 || response.status === 403) {
+          logOut();
+        }
         return response.json();
       })
       .then((data) => {
         setLoading(false);
-        setMyReview(data)
+        setMyReview(data);
       });
-  }, [user?.email,setLoading,logOut]);
+  }, [user?.email, setLoading, logOut]);
   console.log(myReview);
 
   const handleDelete = (id) => {
@@ -48,7 +47,7 @@ const MyReview = () => {
         });
     }
   };
- useTitle("MyReview");
+  useTitle("MyReview");
 
   return (
     <div className="container">
@@ -67,15 +66,25 @@ const MyReview = () => {
             </tr>
           </thead>
           <tbody>
-            {loading ? <div id="loader" className="d-flex justify-content-center ">
-        <Spinner className="text-center" animation="border" variant="info" />
-      </div> : <>{myReview.map((review) => (
-              <MyReviewItem
-                review={review}
-                key={review._id}
-                handleDelete={handleDelete}
-              ></MyReviewItem>
-            ))}</>}
+            {loading ? (
+              <div id="loader" className="d-flex justify-content-center ">
+                <Spinner
+                  className="text-center"
+                  animation="border"
+                  variant="info"
+                />
+              </div>
+            ) : (
+              <>
+                {myReview.map((review) => (
+                  <MyReviewItem
+                    review={review}
+                    key={review._id}
+                    handleDelete={handleDelete}
+                  ></MyReviewItem>
+                ))}
+              </>
+            )}
           </tbody>
         </table>
         {myReview.length === 0 ? (

@@ -164,7 +164,7 @@ const Login = () => {
                       <p className="mx-2">Or</p>
                       <hr className="w-50 me-5" />
                     </div>
-                    <ButtonGroup sm-vertical>
+                    <ButtonGroup sm-vertical='true'>
                       <Button
                         onClick={handleGoogleSignIn}
                         className="d-flex justify-content-center align-items-center w-50 "

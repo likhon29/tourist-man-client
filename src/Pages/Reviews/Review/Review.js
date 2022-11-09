@@ -12,17 +12,7 @@ const Review = ({ service }) => {
       .then((response) => response.json())
       .then((data) => setReviews(data));
   }, [reviews, service._id]);
-  //   console.log(reviews);
-  // function sortByDateFunc(d1, d2) {
-  //   if (d1.date < d2.date) {
-  //     return 1;
-  //   }
-  //   if (d1.date > d2.date) {
-  //     return -1;
-  //   }
-  //   return 0;
-  // }
-  // const sortedReview = reviews.sort(sortByDateFunc);
+ 
 
   return (
     <div>
