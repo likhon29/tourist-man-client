@@ -7,3 +7,14 @@
 .login{
     width:100vw;
 }
+@media only screen and (max-width: 600px) 
+{
+    .myClass img{
+        display:none;
+        
+    }
+    form{
+        padding-bottom:-110px;
+        height:35vh;
+    }
+}

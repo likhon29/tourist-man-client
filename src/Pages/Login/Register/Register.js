@@ -81,7 +81,7 @@ const Register = () => {
         <Container className="form-container">
           <Row>
             <Col lg="4" class>
-              <div className="container left-side py-5">
+              <div className="container myClass left-side py-5">
                 <Image src={img}></Image>
               </div>
             </Col>

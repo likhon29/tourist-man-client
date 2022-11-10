@@ -6,7 +6,7 @@ const Footer = () => {
  
   
   return (
-    <CDBFooter className="shadow mt-5 bg-dark">
+    <CDBFooter className="shadow mt-5 bg-dark ">
       <CDBBox
         display="flex"
         justifyContent="between"

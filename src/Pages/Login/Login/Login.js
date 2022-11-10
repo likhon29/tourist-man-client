@@ -86,7 +86,7 @@ const Login = () => {
         <Container className="form-container">
           <Row>
             <Col lg="4">
-              <div className="container py-5">
+              <div className="container myClass py-5 ">
                 <Image src={img}></Image>
               </div>
             </Col>
