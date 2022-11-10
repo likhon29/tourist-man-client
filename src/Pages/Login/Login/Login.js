@@ -18,7 +18,8 @@ import toast from "react-hot-toast";
 import useTitle from "../../../Hooks/useTitle";
 const Login = () => {
   const [error, setError] = useState("");
-  const { signIn, setLoading, providerLogin, setUser } = useContext(AuthContext);
+  const { signIn, setLoading, providerLogin, setUser } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -56,30 +57,26 @@ const Login = () => {
         const user = result.user;
         const currentUser = {
           email: user.email,
-          
-        }
+        };
         console.log(currentUser);
         form.reset();
         setError("");
         //get jwt token
 
-        fetch('http://localhost:5000/jwt', {
-          method: 'POST',
+        fetch("https://tourist-man-server.vercel.app/jwt", {
+          method: "POST",
           headers: {
-            'content-type': 'application/json'
+            "content-type": "application/json",
           },
-          body: JSON.stringify(currentUser)
+          body: JSON.stringify(currentUser),
         })
-          .then(res => res.json())
-          .then(data => {
+          .then((res) => res.json())
+          .then((data) => {
             console.log(data);
-            localStorage.setItem('tourist-man-token', data.token)
+            localStorage.setItem("tourist-man-token", data.token);
             navigate(from, { replace: true });
             toast.success("Welcome to Tourist Man...");
-        })
-
-        
-        
+          });
       })
       .catch((error) => {
         console.error(error.message);
@@ -158,7 +155,7 @@ const Login = () => {
                       <p className="mx-2">Or</p>
                       <hr className="w-50 me-5" />
                     </div>
-                    <ButtonGroup sm-vertical='true'>
+                    <ButtonGroup sm-vertical="true">
                       <Button
                         onClick={handleGoogleSignIn}
                         className="d-flex justify-content-center align-items-center w-50 "

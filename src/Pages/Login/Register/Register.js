@@ -61,7 +61,7 @@ const Register = () => {
         setError(err.message);
       });
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://tourist-man-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -94,7 +94,7 @@ const Register = () => {
   const handleAccept = (event) => {
     setAccept(event.target.checked);
   };
- useTitle("Register");
+  useTitle("Register");
 
   return (
     <div>

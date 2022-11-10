@@ -9,7 +9,7 @@ const AllServices = () => {
   const [allServices, setAllServices] = useState([]);
   const { loading, setLoading } = useContext(AuthContext);
   useEffect(() => {
-    fetch("http://localhost:5000/allServices")
+    fetch("https://tourist-man-server.vercel.app/allServices")
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
@@ -20,7 +20,9 @@ const AllServices = () => {
   useTitle("ALl Service");
   return (
     <div>
-      {loading ? <LoaderSpinner></LoaderSpinner> : (
+      {loading ? (
+        <LoaderSpinner></LoaderSpinner>
+      ) : (
         <>
           {" "}
           {allServices.map((service) => (

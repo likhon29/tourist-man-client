@@ -17,10 +17,19 @@ const ReviewForm = ({ service }) => {
     const reviewContent = form.review.value;
     // console.log(reviews);
     const currentdate = new Date();
-    const date = "Last Sync: " + currentdate.getDay() + "/" + currentdate.getMonth() 
-    + "/" + currentdate.getFullYear() + " @ " 
-    + currentdate.getHours() + ":" 
-    + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+    const date =
+      "Last Sync: " +
+      currentdate.getDay() +
+      "/" +
+      currentdate.getMonth() +
+      "/" +
+      currentdate.getFullYear() +
+      " @ " +
+      currentdate.getHours() +
+      ":" +
+      currentdate.getMinutes() +
+      ":" +
+      currentdate.getSeconds();
     console.log(date);
     const reviewInfo = {
       service: _id,
@@ -36,7 +45,7 @@ const ReviewForm = ({ service }) => {
 
     console.log(reviewInfo);
     setReviews({ reviewInfo });
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://tourist-man-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,7 +84,8 @@ const ReviewForm = ({ service }) => {
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            name="review" required
+            name="review"
+            required
           ></textarea>
         </div>
         <div className="mb-3">

@@ -10,7 +10,9 @@ const Review = ({ service }) => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?service=${service._id}`)
+    fetch(
+      `https://tourist-man-server.vercel.app/reviews?service=${service._id}`
+    )
       .then((response) => response.json())
       .then((data) => setReviews(data));
   }, [reviews, service._id]);
@@ -18,6 +20,18 @@ const Review = ({ service }) => {
 
   return (
     <div>
+      {user ? (
+        <ReviewForm service={service}></ReviewForm>
+      ) : (
+        <>
+          <div className="d-flex">
+            <h3>
+              Please <Link to="/login">Login</Link> to add a review
+            </h3>
+            {/* <Navigate to="/login" state={{ from: location }} replace></Navigate> */}
+          </div>
+        </>
+      )}
       <h3 className="text-warning">
         Customer Reviews for {service.service_name}
       </h3>
@@ -33,19 +47,6 @@ const Review = ({ service }) => {
           </>
         )}
       </div>
-      {user ? (
-        <ReviewForm service={service}></ReviewForm>
-      ) : (
-        <>
-          <div className="d-flex">
-            <h3>
-              
-              Please <Link to="/login">Login</Link> to add a review 
-            </h3>
-            {/* <Navigate to="/login" state={{ from: location }} replace></Navigate> */}
-          </div>
-        </>
-      )}
     </div>
   );
 };

@@ -44,7 +44,7 @@ const Header = () => {
                 style={{  }}
                 alt=""
               />{" "}
-              <h2 className="ms-3">Tourist.Man</h2>
+              <h2 className="ms-3 text-danger">Tourist.Man </h2>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 

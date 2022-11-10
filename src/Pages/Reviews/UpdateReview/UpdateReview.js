@@ -1,58 +1,48 @@
-import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import React, { useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useTitle from "../../../Hooks/useTitle";
 
 const UpdateReview = () => {
-    const storedReview = useLoaderData();
-    //   const [review, setReview] = useState(storedReview);
-    const { service_name,reviewContent } = storedReview;
-    const [ratings, setRatings] = useState(storedReview.ratings);
+  const storedReview = useLoaderData();
+  const navigate = useNavigate();
+  const { service_name, reviewContent } = storedReview;
+  const [ratings, setRatings] = useState(storedReview.ratings);
   const handleUpdateReview = (event) => {
     console.log("clicked");
     event.preventDefault();
-      const form = event.target;
-      const reviewContent = form.review.value;
-       const updateInfo = {
+    const form = event.target;
+    const reviewContent = form.review.value;
+    const updateInfo = {
+      reviewContent: reviewContent,
+      ratings: ratings,
+    };
 
-         reviewContent: reviewContent,
-         ratings: ratings,
-
-       };
-
-    // console.log(updateInfo);
-    fetch(`http://localhost:5000/myReview/${storedReview._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateInfo),
-    })
+    fetch(
+      `https://tourist-man-server.vercel.app/myReview/${storedReview._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateInfo),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
           alert("Review Update successfully");
           console.log(data);
+          navigate("/myReview");
         }
-        //    if (data.acknowledged) {
-        //      alert("Review Update successfully");
-        //      form.reset();
-        //    }
       })
-     .catch((er) => console.error(er));
+      .catch((er) => console.error(er));
   };
-//   const handleInputChange = (event) => {
-//     const field = event.target.name;
-//     const value = event.target.value;
-//     const newReview = { ...review };
-//     newReview[field] = value;
-//     setReview(newReview);
-//   };
-    const handleRating = (event) => {
-      event.preventDefault();
-      setRatings(event.target.value);
-    };
+
+  const handleRating = (event) => {
+    event.preventDefault();
+    setRatings(event.target.value);
+  };
   useTitle("Update Review");
   return (
     <div className="container">
@@ -72,15 +62,14 @@ const UpdateReview = () => {
             id="exampleFormControlTextarea1"
             rows="3"
             name="review"
-            
             defaultValue={reviewContent}
           ></textarea>
         </div>
         <div className="mb-3">
           <label className="form-label">Rating</label>
-        
-                  <select
-                      defaultValue={ratings}
+
+          <select
+            defaultValue={ratings}
             required
             name="rating"
             className="form-select"
