@@ -15,22 +15,14 @@ const About = () => {
       <Container className=" bg-light  ">
         <Row>
           <Col lg="6" className="">
-          <h1 className="my-3 m-5 fs-1 font-bold">
-              I am qualified &<br />
-               of experience 
-              in this field
+          <h1 className="my-3 m-5 fs-1 text-warning font-bold">
+              My First Priority <br />
+              <span className='fs-5'>will serve  qualified & fast services with minimum cost. </span> 
             </h1>
-            <p className="py-6 my-3 m-5">
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which don't look even
-              slightly believable.
+            <p className="py-6 my-3 m-5 fs-4">
+              I will provide different kind of one man providing service as well as i also serve retailing services with effieciently low cost and trusted services with fasted services
             </p>
-            <p className="py-6 m-5">
-              the majority have suffered alteration in some form, by injected
-              humour, or randomised words which don't look even slightly
-              believable.{" "}
-            </p>
+            
             <button className="btn btn-primary mx-5">Get More Info</button>
           </Col>
 
