@@ -57,7 +57,7 @@ const AddService = () => {
         if (data.acknowledged) {
           alert("Service added successfully");
           form.reset();
-          navigate("/");
+          navigate("/allServices");
         }
       })
       .catch((er) => console.error(er));

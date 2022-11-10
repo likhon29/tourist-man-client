@@ -14,11 +14,11 @@ const ServiceDetails = () => {
 
   return (
     <div className="container ">
-      <div className="container bg-light m-5 border p-3">
+      <div className="container bg-light m-5 mx-auto border p-3 ">
         <PhotoProvider>
           <div className="foo text-center my-3">
             <PhotoView src={image}>
-              <img src={image} width="60%" height={300} alt="" />
+              <img src={image} width="80%" height={300} alt="" />
             </PhotoView>
           </div>
         </PhotoProvider>
@@ -32,7 +32,7 @@ const ServiceDetails = () => {
         <p className="text-warning">Ratings: {rating}</p>
         </div>
       </div>
-      <div className="container review-container m-5">
+      <div className="container mx-auto review-container m-5">
               <Review service={service} key={_id}>
                   
         </Review>

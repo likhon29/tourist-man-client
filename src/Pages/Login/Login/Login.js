@@ -16,9 +16,10 @@ import {
 } from "firebase/auth";
 import toast from "react-hot-toast";
 import useTitle from "../../../Hooks/useTitle";
+import LoaderSpinner from "../../Others/LoaderSpinner/LoaderSpinner";
 const Login = () => {
   const [error, setError] = useState("");
-  const { signIn, setLoading, providerLogin, setUser } =
+  const { signIn, setLoading, providerLogin, loading, setUser } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -80,6 +81,7 @@ const Login = () => {
 
   return (
     <div className="login">
+      {loading ? <LoaderSpinner></LoaderSpinner> : <>
       <div className="container">
         <Container className="form-container">
           <Row>
@@ -168,6 +170,7 @@ const Login = () => {
           </Row>
         </Container>
       </div>
+      </>}
     </div>
   );
 };

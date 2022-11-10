@@ -16,21 +16,21 @@ const ReviewForm = ({ service }) => {
     const form = event.target;
     const reviewContent = form.review.value;
     // console.log(reviews);
-    const currentdate = new Date();
-    const date =
-      "Last Sync: " +
-      currentdate.getDay() +
-      "/" +
-      currentdate.getMonth() +
-      "/" +
-      currentdate.getFullYear() +
-      " @ " +
-      currentdate.getHours() +
-      ":" +
-      currentdate.getMinutes() +
-      ":" +
-      currentdate.getSeconds();
-    console.log(date);
+    const date = new Date();
+    // const date =
+    //   "Last Sync: " +
+    //   currentdate.getDay() +
+    //   "/" +
+    //   currentdate.getMonth() +
+    //   "/" +
+    //   currentdate.getFullYear() +
+    //   " @ " +
+    //   currentdate.getHours() +
+    //   ":" +
+    //   currentdate.getMinutes() +
+    //   ":" +
+    //   currentdate.getSeconds();
+    // console.log(date);
     const reviewInfo = {
       service: _id,
       service_name: service_name,

@@ -8,6 +8,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import useTitle from "../../../Hooks/useTitle";
+import LoaderSpinner from "../../Others/LoaderSpinner/LoaderSpinner";
 const Register = () => {
   const [error, setError] = useState("");
   const [accept, setAccept] = useState(false);
@@ -74,7 +75,9 @@ const Register = () => {
 
   return (
     <div>
-      <div className="container">
+      {loading ? <LoaderSpinner></LoaderSpinner> :
+        <>
+        <div className="container">
         <Container className="form-container">
           <Row>
             <Col lg="4" class>
@@ -160,7 +163,7 @@ const Register = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </div></>}
     </div>
   );
 };
