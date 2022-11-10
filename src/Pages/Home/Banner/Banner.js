@@ -40,7 +40,7 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h3 className=" fs-1">Rent a Tour Guider</h3>
+          <h3 className=" fs-1">Hire a Tour Guide</h3>
           <p className="text-warning">
             I will provide as a tour guide service for any tourist place
           </p>

@@ -16,16 +16,16 @@ const ServiceItem = ({ service }) => {
       </PhotoProvider>
 
       <div className="ms-4">
-        <h4>{service_name}</h4>
-        <p>
+        <h4 className="fs-2 text-primary">{service_name}</h4>
+        <p >
           {description.length > 50
             ? description.slice(0, 400) + "...."
             : description}{" "}
         </p>
-        <p>
-          Prize:{price}Tk / <span className="text-warning">person</span>{" "}
+        <p >
+          Service Fee: <span className="text-success fs-3">{price}</span> Tk{" "}
         </p>
-        <p>Ratings: {rating}</p>
+        <p className="text-warning">Ratings: {rating}</p>
         <Link to={`/service/${_id}`}>
           {" "}
           <Button>View Details</Button>

@@ -13,8 +13,8 @@ const ServiceDetails = () => {
  useTitle(`${service_name}`);
 
   return (
-    <div className="container">
-      <div className="container  m-5 border p-3">
+    <div className="container ">
+      <div className="container bg-light m-5 border p-3">
         <PhotoProvider>
           <div className="foo text-center my-3">
             <PhotoView src={image}>
@@ -24,12 +24,12 @@ const ServiceDetails = () => {
         </PhotoProvider>
 
         <div className="ms-4">
-          <h4>{service_name}</h4>
+        <h4 className="fs-2 text-primary">{service_name}</h4>
           <p>{description}</p>
-          <p>
-            Prize:{price}Tk / <span className="text-warning">person</span>{" "}
-          </p>
-          <p>Ratings: {rating}</p>
+          <p >
+          Service Fee: <span className="text-success fs-3">{price}</span> Tk{" "}
+        </p>
+        <p className="text-warning">Ratings: {rating}</p>
         </div>
       </div>
       <div className="container review-container m-5">
