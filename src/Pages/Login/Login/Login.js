@@ -35,17 +35,7 @@ const Login = () => {
       })
       .catch((error) => console.error(error));
   };
-  const handleFacebookLogin = () => {
-    providerLogin(facebookProvider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

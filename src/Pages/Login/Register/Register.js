@@ -19,6 +19,7 @@ const Register = () => {
     volunteer,
     setVolunteer,
     setLoading,
+    loading
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,29 +32,17 @@ const Register = () => {
     const name = form.name.value;
     const password = form.password.value;
     const phone = form.phone.value;
-    const photURL = form.photoURL.value;
-    const userInfo = {
-      email,
-      name,
-      password,
-      phone,
-      photURL,
-    };
-    console.log(userInfo);
+    const photoURL = form.photoURL.value;
+   
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        user.photURL = photURL;
-        user.displayName = name;
-        user.phone = phone;
         console.log(user);
         setError("");
         form.reset();
-        setLoading(true);
-        handleUpdateUserProfile({ userInfo });
-        // handleEmailVerification();
-        toast.success("Please verify your email");
+        // setLoading(true);
+        handleUpdateUserProfile(name,photoURL);
         navigate("/");
       })
       .catch((err) => {
@@ -61,35 +50,22 @@ const Register = () => {
         setError(err.message);
       });
 
-    fetch("https://tourist-man-server.vercel.app/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        const newMembers = [...volunteer, data];
-        setVolunteer(newMembers);
-      })
-      .catch((err) => console.error(err));
+    
   };
 
-  const handleUpdateUserProfile = ({ userInfo }) => {
-    updateUserProfile(userInfo)
+  const handleUpdateUserProfile = (name,photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL
+    }
+    updateUserProfile(profile)
       .then(() => {
-        // user.photoURL = userInfo.photoURL;
+        
       })
       .catch((error) => console.error(error));
   };
 
-  const handleEmailVerification = () => {
-    verifyEmail()
-      .then(() => {})
-      .catch((error) => console.error(error));
-  };
+  
 
   const handleAccept = (event) => {
     setAccept(event.target.checked);
