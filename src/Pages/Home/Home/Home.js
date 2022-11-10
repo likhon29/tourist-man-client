@@ -8,7 +8,7 @@ import ServiceItem from "../../Services/ServiceItem/ServiceItem";
 import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Contact from "../Contact/Contact";
-
+import './Home.css'
 const Home = () => {
   const { user } = useContext(AuthContext);
   const [services, setServices] = useState([]);
@@ -28,7 +28,6 @@ const Home = () => {
       <Banner></Banner>
       <PageTitle pageInfo={{ title: "My Services" }}></PageTitle>
       <div className="">
-        {/* <h1>Services:{services.length}</h1> */}
         {services.map((service) => (
           <ServiceItem service={service} key={service._id}></ServiceItem>
         ))}

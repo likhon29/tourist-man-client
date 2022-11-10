@@ -6,16 +6,16 @@ import "./ServiceItem.css";
 const ServiceItem = ({ service }) => {
   const { image, _id, service_name, description, price, rating } = service;
   return (
-    <div className="container d-flex m-5 border p-3 mx-auto">
+    <div className="container service-container d-flex m-5 border p-3 mx-auto">
       <PhotoProvider>
         <div className="foo">
           <PhotoView src={image}>
-            <img src={image} width={500} height={300} alt="" />
+            <img className="img-container" src={image} width={500} height={300} alt="" />
           </PhotoView>
         </div>
       </PhotoProvider>
 
-      <div className="ms-4">
+      <div className=" ms-4">
         <h4 className="fs-2 text-primary">{service_name}</h4>
         <p >
           {description.length > 50

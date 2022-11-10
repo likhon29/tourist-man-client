@@ -17,7 +17,7 @@ const AllServices = () => {
       });
   }, [allServices, setLoading]);
 
-  useTitle("ALl Service");
+  useTitle("ALL Service");
   return (
     <div>
       {loading ? (

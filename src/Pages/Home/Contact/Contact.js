@@ -49,7 +49,7 @@ const Contact = () => {
                   <Form.Control type="text" placeholder="Subject" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <textarea name="" id="" cols="70" placeholder="write your massage here..." rows="10"></textarea>
+                  <textarea name="" id="" cols="50" placeholder="write your massage here..." rows="10"></textarea>
                               </Form.Group>
 
                 <Link to="/">

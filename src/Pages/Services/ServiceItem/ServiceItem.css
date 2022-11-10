@@ -2,3 +2,15 @@
     transition: transform .4s;
     transform: scale(1.1);
 }
+@media only screen and (max-width: 600px) 
+{
+    .service-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .service-container img{
+        width: 90%;
+    }
+    
+}

@@ -104,7 +104,7 @@ const Login = () => {
                   {/* <h3 className="ms-5">Login Form</h3> */}
                   <Form
                     onSubmit={handleSubmit}
-                    className="container w-100 my-5 p-5 rounded  text-center"
+                    className="container w-100 my-5  rounded  text-center"
                   >
                     <h2 className="text-center">Login Now!</h2>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -155,8 +155,9 @@ const Login = () => {
                       <p className="mx-2">Or</p>
                       <hr className="w-50 me-5" />
                     </div>
-                    <ButtonGroup sm-vertical="true">
-                      <Button
+                    <h1>Or</h1>
+                  </Form>
+                  <div className="d-flex justify-content-center pb-5"><Button
                         onClick={handleGoogleSignIn}
                         className="d-flex justify-content-center align-items-center w-50 "
                         variant="success"
@@ -164,21 +165,15 @@ const Login = () => {
                         {" "}
                         <FaGoogle className="text-warning fs-1 me-2"></FaGoogle>{" "}
                         Continue with Google
-                      </Button>
+                      </Button></div>
+                      
 
-                      <Button
-                        onClick={handleFacebookLogin}
-                        className="d-flex justify-content-center align-items-center w-50"
-                        variant="primary"
-                      >
-                        {" "}
-                        <FaFacebook className=" fs-1"></FaFacebook> Continue
-                        with Facebook
-                      </Button>
-                    </ButtonGroup>
-                  </Form>
+                      
+                   
                 </div>
+                
               </div>
+              
             </Col>
           </Row>
         </Container>
